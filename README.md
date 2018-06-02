@@ -28,3 +28,9 @@ Confira se o código está de acordo com a PEP8:
 ```
 flake8 .
 ```
+
+Para rodar os testes com cobertura:
+
+```
+pytest antigonovo --cov=antigonovo
+```
