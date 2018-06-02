@@ -2,6 +2,8 @@
 Exemplo de webiste em Django
 
 [![Build Status](https://travis-ci.org/renzon/antigonovo.svg?branch=master)](https://travis-ci.org/renzon/antigonovo)
+[![Updates](https://pyup.io/repos/github/renzon/antigonovo/shield.svg)](https://pyup.io/repos/github/renzon/antigonovo/)
+[![Python 3](https://pyup.io/repos/github/renzon/antigonovo/python-3-shield.svg)](https://pyup.io/repos/github/renzon/antigonovo/)
 
 Para instalar ambiente de desenvolvimento:
 
