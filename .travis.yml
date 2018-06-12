@@ -3,6 +3,7 @@ python:
   - 3.6
 install:
   - pip install -q -r requirements-dev.txt codecov
+  - cp contrib/env-sample .env
 script:
   - flake8 .
   - pytest antigonovo --cov=antigonovo
