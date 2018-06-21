@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'collectfast',
     'django.contrib.staticfiles',
-    'antigonovo.core'
+    'antigonovo.core',
+    'antigonovo.moveis',
 ]
 
 MIDDLEWARE = [

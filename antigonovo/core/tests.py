@@ -13,7 +13,7 @@ def test_home_status_code(client):
         'Antigo Novo Móveis',
         'contato@antigonovo.com.br',
         '+55 12 987654-3210',
-        'href="/contato"'
+        'href="/contato/"'
 
     ]
 )
