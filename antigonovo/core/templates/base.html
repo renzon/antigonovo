@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Antigo Novo Móveis{% endblock title %}</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/tether.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+</head>
+<body>
+<!-- As a link -->
+<nav class="navbar navbar-light bg-light navbar-expand-md ">
+    <a class="navbar-brand" href="/">Antigo Novo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/contato">Contato</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{% block content %}{% endblock content %}
+
+<footer class="main-footer mt-5 text-ligh bg-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="mt-3">Entre em contato</h3>
+                <address class="main-address">
+                    +55 12 987654-3210<br/>
+                    <a href="mailto:contato@antigonovo.com.br" class="text-light">contato@antigonovo.com.br</a>
+                </address>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
