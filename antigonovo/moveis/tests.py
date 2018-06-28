@@ -2,6 +2,7 @@ import pytest
 from django.urls import reverse
 
 from antigonovo.django_assertions import dj_assert_contains
+from antigonovo.moveis.models import Movel
 
 
 def test_app_link_in_home(client):
@@ -10,7 +11,20 @@ def test_app_link_in_home(client):
 
 
 @pytest.fixture
-def resp(client):
+def moveis(db):
+    movel = Movel(
+        titulo='Prensa de Madeira da Época Colonial',
+        preco='30000.001',
+        descricao='Prensa de farinha de mandioca, madeira maciça. Construída artesanalmente por '
+                  'escravos.'
+    )
+
+    movel.save()
+    return [movel]
+
+
+@pytest.fixture
+def resp(client, moveis):
     return client.get(reverse('moveis:index'))
 
 
