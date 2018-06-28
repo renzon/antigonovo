@@ -6,46 +6,22 @@
             <div class="col">
                 <h1 class="text-center mt-4 mb-3">Portfólio de Móveis</h1>
                 <div class="row">
-                    <div class="col">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top"
-                                 src="//s3.amazonaws.com/img.iluria.com/product/466341/A93300/450xN.jpg"
-                                 alt="Prensa de Madeira da Época Colonial">
-                            <div class="card-body">
-                                <h5 class="card-title">Prensa de Madeira da Época Colonial - R$ 30.000,00</h5>
-                                <p class="card-text">Prensa de farinha de mandioca, madeira maciça. Construída
-                                    artesanalmente por escravos.</p>
-                                <a href="#" class="btn btn-primary">Detalhes</a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top"
-                                 src="//s3.amazonaws.com/img.iluria.com/product/466341/A93300/450xN.jpg"
-                                 alt="Prensa de Madeira da Época Colonial">
-                            <div class="card-body">
-                                <h5 class="card-title">Prensa de Madeira da Época Colonial - R$ 30.000,00</h5>
-                                <p class="card-text">Prensa de farinha de mandioca, madeira maciça. Construída artesanalmente por escravos.</p>
-                                <a href="#" class="btn btn-primary">Detalhes</a>
+                    {% for movel in moveis %}
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top"
+                                     src="//s3.amazonaws.com/img.iluria.com/product/466341/A93300/450xN.jpg"
+                                     alt="{{ movel.titulo }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ movel.titulo }}
+                                        - {{ movel.preco }}</h5>
+                                    <p class="card-text">{{ movel.descricao }}</p>
+                                    <a href="#" class="btn btn-primary">Detalhes</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top"
-                                 src="//s3.amazonaws.com/img.iluria.com/product/466341/A93300/450xN.jpg"
-                                 alt="Prensa de Madeira da Época Colonial">
-                            <div class="card-body">
-                                <h5 class="card-title">Prensa de Madeira da Época Colonial - R$ 30.000,00</h5>
-                                <p class="card-text">Prensa de farinha de mandioca, madeira maciça. Construída
-                                    artesanalmente por escravos.</p>
-                                <a href="#" class="btn btn-primary">Detalhes</a>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
 
                 </div>
             </div>

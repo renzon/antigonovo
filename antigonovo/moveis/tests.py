@@ -21,7 +21,7 @@ def test_status_code(resp):
 @pytest.mark.parametrize(
     'content', [
         '//s3.amazonaws.com/img.iluria.com/product/466341/A93300/450xN.jpg',
-        'R$ 30.000,00',
+        '30000,00',
         'Prensa de Madeira da Época Colonial',
         'Prensa de farinha de mandioca, madeira maciça. Construída artesanalmente por escravos.',
     ]
