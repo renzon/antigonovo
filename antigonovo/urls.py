@@ -24,6 +24,7 @@ urlpatterns = [
     path('', core_views.home),
     path('contato/', core_views.contact),
     path('moveis/', include('antigonovo.moveis.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

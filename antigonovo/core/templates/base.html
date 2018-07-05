@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{% block title %}Antigo Novo Móveis{% endblock title %}</title>
+    <title>{% block title %}Antigo Novo Móveis{% endblock title %}</title>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -22,7 +22,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/contato/">Contato</a>
             </li>
@@ -30,6 +30,12 @@
                 <a class="nav-link" href="{% url 'moveis:index' %}">Moveis</a>
             </li>
         </ul>
+        {% if user.is_authenticated %}
+            <a class="btn btn-danger my-2 my-sm-0" href="{% url 'logout' %}">Sair</a>
+        {% else %}
+            <a class="btn btn-dark my-2 my-sm-0" href="{% url 'login' %}">Entrar</a>
+        {% endif %}
+
     </div>
 </nav>
 
