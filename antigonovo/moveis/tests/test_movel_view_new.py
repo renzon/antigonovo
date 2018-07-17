@@ -37,7 +37,12 @@ def test_status_code_user_logged(resp):
         '<input type="number" name="preco"',
         '<textarea name="descricao"',
         '<button type="submit"',
+        'csrfmiddlewaretoken',
     ]
 )
 def test_form_inputs(resp, content):
     dj_assert_contains(resp, content)
+
+
+def test_form_action(resp):
+    dj_assert_contains(resp, f'''<form method="post" action="{reverse('moveis:create')}"''')
