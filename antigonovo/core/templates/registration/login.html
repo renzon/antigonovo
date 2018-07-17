@@ -21,7 +21,7 @@
                     {% csrf_token %}
                     <form role="form">
                         <div class="form-group">
-                            <label for="exampleInputEmail1" for="{{ form.username.id_for_label }}">
+                            <label for="{{ form.username.id_for_label }}">
                                 {{ form.username.label }}
                             </label>
                             <input type="email" name="{{ form.username.name }}"
