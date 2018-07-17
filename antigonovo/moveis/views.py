@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-
+from django.shortcuts import redirect, render
 # Create your views here.
 from django.urls import reverse
 
@@ -23,7 +22,7 @@ def new(request):
 
 @login_required
 def create(request):
-    dct = request.GET
+    dct = request.POST
     preco = dct['preco'].replace(',', '.')
     movel = Movel(titulo=dct['titulo'], preco=preco, descricao=dct['descricao'])
     movel.save()
