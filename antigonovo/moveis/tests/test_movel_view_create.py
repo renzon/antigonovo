@@ -2,12 +2,13 @@ import pytest
 from django.test import Client
 from django.urls import reverse
 
+from antigonovo.django_assertions import dj_assert_in
 from antigonovo.moveis.models import Movel
 
 
 @pytest.fixture
 def resp_without_user(client: Client):
-    return client.get(
+    return client.post(
         reverse('moveis:create'),
         data={
             'titulo': 'Prensa',
@@ -30,6 +31,19 @@ def resp(user, client: Client):
     return resp_without_user(client)
 
 
+@pytest.fixture
+def resp_no_data(user, client: Client):
+    client.force_login(user)
+    return client.post(
+        reverse('moveis:create'),
+        data={
+            'titulo': '',
+            'preco': '',
+            'descricao': '',
+        }
+    )
+
+
 def test_status_code_user_not_logged(resp_without_user):
     assert resp_without_user.url.startswith(reverse('login'))
 
@@ -40,3 +54,11 @@ def test_status_code_user_logged(resp):
 
 def test_movel_salvo(resp):
     assert Movel.objects.exists()
+
+
+def test_status_code_for_error(resp_no_data):
+    assert 400 == resp_no_data.status_code
+
+
+def test_status_invalid_data_in_context(resp_no_data):
+    assert dj_assert_in('form', resp_no_data.context)
