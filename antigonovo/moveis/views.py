@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 # Create your views here.
 from django.urls import reverse
 
+from antigonovo.moveis.forms import MovelForm
 from antigonovo.moveis.models import Movel
 
 
@@ -23,22 +24,13 @@ def new(request):
 @login_required
 def create(request):
     # Extraia os dados do request
-    dct = request.POST
+    form = MovelForm(request.POST)
     # Valide os Inputs
-    erros = {}
-    for propriedade in 'titulo descricao'.split():
-        if dct.get(propriedade, '') == '':
-            erros[propriedade] = 'Campo obrigatório.'
-    preco = dct['preco'].replace(',', '.')
-    try:
-        float(preco)
-    except Exception:
-        erros['preco'] = 'Digite um valor numérico'
-    # Se tiver erro, retorne para o form preenchendo com dados já enviados e msgs de erro
-    if erros:
-        ctx = {'form': dct, 'erros': erros}
+    if not form.is_valid():
+        ctx = {'form': form}
         return render(request, 'moveis/movel_form.html', context=ctx, status=400)
     # Se válido, salve no banco e redirecione
-    movel = Movel(titulo=dct['titulo'], preco=preco, descricao=dct['descricao'])
+    dct = form.cleaned_data
+    movel = Movel(**dct)
     movel.save()
     return redirect(reverse('moveis:index'))

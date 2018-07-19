@@ -6,39 +6,44 @@
             <div class="col">
                 <h1 class="text-center mt-4 mb-3">Insira novo Móvel</h1>
 
+                {{ form.errors }}
+
                 <form method="post" action="{% url 'moveis:create' %}">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="tituloInput">
-                            Titulo:
+                            {{ form.titulo.label }}
                         </label>
                         <input type="text" name="titulo"
-                               class="form-control{% if erros.titulo %} is-invalid{% endif %}" id="tituloInput"
-                               value="{{ form.titulo }}"/>
+                               class="form-control{% if form.titulo.errors %} is-invalid{% endif %}"
+                               id="tituloInput"
+                               value="{{ form.titulo.value }}"/>
                         <div class="invalid-feedback">
-                            {{ erros.titulo }}
+                            {{ form.titulo.errors }}
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="precoInput">
-                            Preço:
+                            {{ form.preco.label }}
                         </label>
-                        <input type="number" name="preco" class="form-control{% if erros.preco %} is-invalid{% endif %}" id="precoInput"
+                        <input type="number" name="preco"
+                               class="form-control{% if form.preco.errors %} is-invalid{% endif %}"
+                               id="precoInput"
                                min="0.01"
-                               step="0.01" value="{{ form.preco }}"/>
+                               step="0.01" value="{{ form.preco.value }}"/>
                         <div class="invalid-feedback">
-                            {{ erros.preco }}
+                            {{ form.preco.errors }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="descricaoInput">
-                            Descrição:
+                            {{ form.descricao.label }}
                         </label>
                         <textarea name="descricao" id="descricaoInput"
-                                  class="form-control{% if erros.descricao %} is-invalid{% endif %}">{{ form.descricao }}</textarea>
+                                  class="form-control{% if form.descricao.errors %} is-invalid{% endif %}">{{ form.descricao.value }}</textarea>
                         <div class="invalid-feedback">
-                            {{ erros.descricao }}
+                            {{ form.descricao.errors }}
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Salvar</button>
