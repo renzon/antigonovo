@@ -18,19 +18,18 @@ def index(request):
 
 @login_required
 def new(request):
-    return render(request, 'moveis/movel_form.html')
+    ctx = {'form': MovelForm()}
+    return render(request, 'moveis/movel_form.html', context=ctx)
 
 
 @login_required
 def create(request):
     # Extraia os dados do request
-    form = MovelForm(request.POST)
+    form = MovelForm(request.POST, request.FILES)
     # Valide os Inputs
     if not form.is_valid():
         ctx = {'form': form}
         return render(request, 'moveis/movel_form.html', context=ctx, status=400)
     # Se válido, salve no banco e redirecione
-    dct = form.cleaned_data
-    movel = Movel(**dct)
-    movel.save()
+    form.save()
     return redirect(reverse('moveis:index'))

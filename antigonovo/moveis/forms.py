@@ -1,7 +1,9 @@
 from django import forms
 
+from antigonovo.moveis.models import Movel
 
-class MovelForm(forms.Form):
-    titulo = forms.CharField(max_length=50)
-    descricao = forms.CharField()
-    preco = forms.DecimalField(decimal_places=2, min_value=0)
+
+class MovelForm(forms.ModelForm):
+    class Meta:
+        model = Movel
+        fields = 'titulo preco descricao foto'.split()

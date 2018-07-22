@@ -2,7 +2,7 @@ import pytest
 from django.test import Client
 from django.urls import reverse
 
-from antigonovo.django_assertions import dj_assert_in
+from antigonovo.moveis.forms import MovelForm
 from antigonovo.moveis.models import Movel
 
 
@@ -12,7 +12,7 @@ def resp_without_user(client: Client):
         reverse('moveis:create'),
         data={
             'titulo': 'Prensa',
-            'preco': '3000,00',
+            'preco': '3000',
             'descricao': 'Prensa do século passado',
         }
     )
@@ -61,4 +61,4 @@ def test_status_code_for_error(resp_no_data):
 
 
 def test_status_invalid_data_in_context(resp_no_data):
-    assert dj_assert_in('form', resp_no_data.context)
+    assert isinstance(resp_no_data.context['form'], MovelForm)
