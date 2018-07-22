@@ -8,7 +8,7 @@
 
                 {{ form.errors }}
 
-                <form method="post" action="{% url 'moveis:create' %}">
+                <form method="post" action="{% url 'moveis:create' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="tituloInput">
@@ -46,10 +46,13 @@
                             {{ form.descricao.errors }}
                         </div>
                     </div>
+
+                    {{ form.foto }}
                     <button type="submit" class="btn btn-primary">Salvar</button>
 
 
                 </form>
+
 
             </div>
         </div>
