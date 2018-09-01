@@ -1,7 +1,7 @@
 -r requirements.txt
 
 atomicwrites==1.1.5
-attrs==18.1.0
+attrs==18.2.0
 coverage==4.5.1
 django-debug-toolbar==1.9.1
 flake8==3.5.0
