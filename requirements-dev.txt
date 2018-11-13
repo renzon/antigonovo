@@ -2,7 +2,7 @@
 
 atomicwrites==1.1.5
 attrs==18.1.0
-coverage==4.5.1
+coverage==4.5.2
 django-debug-toolbar==1.9.1
 flake8==3.5.0
 mccabe==0.6.1
