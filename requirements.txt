@@ -6,7 +6,7 @@ Django-extensions==2.1.0
 django-s3-folder-storage==0.5
 django-storages==1.6.6
 django==2.0.7
-docutils==0.14
+docutils==0.18.1
 gunicorn==19.8.1
 jmespath==0.9.3
 Pillow==5.2.0
