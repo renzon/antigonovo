@@ -5,7 +5,7 @@ attrs==18.1.0
 coverage==4.5.1
 django-debug-toolbar==1.9.1
 flake8==3.5.0
-mccabe==0.6.1
+mccabe==0.7.0
 more-itertools==4.2.0
 pluggy==0.6.0
 py==1.5.4
